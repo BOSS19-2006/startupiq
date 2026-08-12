@@ -1,0 +1,10 @@
+node_modules
+.env
+.env.local
+.env.boottest
+dist
+build
+uploads/pitchdecks/*
+!uploads/pitchdecks/.gitkeep
+*.log
+.DS_Store
