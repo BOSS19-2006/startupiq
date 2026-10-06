@@ -103,6 +103,40 @@ npm run install:all
 
 This installs dependencies for both `server/` and `client/`.
 
+### Windows quick start
+
+From the repository root in PowerShell:
+
+```powershell
+npm run install:all
+Copy-Item server\.env.example server\.env
+Copy-Item client\.env.example client\.env
+npm run dev
+```
+
+Open the application at `http://localhost:5173`. The API health check is available at
+`http://localhost:5000/api/health`. Keep MongoDB running locally before using database-backed
+features. If `server\.env` or `client\.env` already exists, skip the corresponding `Copy-Item`
+command.
+
+To run the services in separate PowerShell windows:
+
+```powershell
+# Terminal 1 - API
+npm run dev:server
+
+# Terminal 2 - frontend
+npm run dev:client
+```
+
+To stop either service, focus its terminal and press `Ctrl+C`. To verify that the services are
+reachable without opening a browser:
+
+```powershell
+Invoke-WebRequest http://localhost:5000/api/health
+Invoke-WebRequest http://localhost:5173
+```
+
 ## 5. Environment variables
 
 Copy the example files and fill them in:
